@@ -7,11 +7,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { NgFor } from '@angular/common';
 import { RouterModule, Router } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-list',
   standalone: true,
-  imports: [MatCardModule, MatButtonModule, NgFor, MatIconModule, RouterModule],
+  providers: [DataService],
+  imports: [MatCardModule, MatButtonModule, 
+            NgFor, MatIconModule, RouterModule, 
+            HttpClientModule],
   templateUrl: './list.component.html',
   styleUrl: './list.component.css'
 })
