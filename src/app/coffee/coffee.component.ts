@@ -94,8 +94,8 @@ export class CoffeeComponent {
   acquireLocation(){
     this.geolocation.requestLocation((location: GeolocationCoordinates | null) => {
       if(location){
-        this.coffee.location!.lat = location.latitude;
-        this.coffee.location!.lon = location.longitude;
+        this.coffee.location!.latitud = location.latitude
+        this.coffee.location!.longitud = location.longitude
       }
     });
   }

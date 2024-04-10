@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class DataService {
 
   public endPoint = 'http://localhost:3000';
-  public entry = '/coffees'
+  public entry = '/coffees/coffees'
 
   constructor(private http: HttpClient) { }
 

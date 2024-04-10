@@ -5,5 +5,10 @@
     bottom: 20px;
 }
 
+@media (display-mode: standalone) {
+    #buttonCreate {
+        bottom: 50px;
+    }
+}
 
 

@@ -19,8 +19,8 @@ export class GeolocationService {
 
   getMapLink(location: PlaceLocation){
     let query = ''
-    if(location.lat && location.lon){
-      query = `${location.lat}`,`${location.lon}`
+    if(location.latitud && location.longitud){
+      query = `${location.latitud}`,`${location.longitud}`
     }else{
       query = `${location.address}`,`${location.city}`
     }
