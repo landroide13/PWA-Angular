@@ -12,7 +12,7 @@ export class UiService {
   }
 
   setThemeColor(color: string){
-    const meta = document.querySelector('meta[name:theme-color]') as any;
+    const meta = document.querySelector('meta[name=theme-color]') as any;
     meta.content = color;
   }
 }

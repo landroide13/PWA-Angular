@@ -3,13 +3,14 @@ import { RouterOutlet } from '@angular/router';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { HttpClientModule } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
   providers: [MatSnackBar],
-  imports: [RouterOutlet, MatToolbarModule],
+  imports: [RouterOutlet, 
+            MatToolbarModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -18,7 +19,23 @@ export class AppComponent {
 
   constructor(private snack: MatSnackBar){}
 
+  updateNetworkStatusUI() {
+    if (navigator.onLine) {
+      // false positives, careful
+      (document.querySelector("body") as any).style = "";
+    } else {
+      // we are offline
+      (document.querySelector("body") as any).style = "filter: grayscale(1)";
+    }
+  }
+
   ngOnInit(){
+
+    this.updateNetworkStatusUI();
+    window.addEventListener("online", this.updateNetworkStatusUI);
+    window.addEventListener("offline", this.updateNetworkStatusUI);
+
+
     if(window.matchMedia('(display-mode: browser').matches){
 
       if('standalone' in navigator){
